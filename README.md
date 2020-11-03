@@ -26,7 +26,7 @@ Result
 **To qualitatively measure the proposed MCNet, three evaluation methods are employed to verify the effectiveness of the algorithm, including  peak signal-to-noise ratio (PSNR), structural similarity (SSIM), and spectral angle mapping (SAM).**
 
 
-| Scale  |  CAVE |  Harvard |  Pavia Centre |
+| Scale  |  CAVE |  Harvard |  Foster |
 | :------------: | :------------: | :------------: | :------------: | 
 |  x2 |  45.300 / 0.9739 / 2.217 | 46.342 / 0.9830 / 1.880  | 58.859 / 0.9988 / 4.052 | 
 |  x3 |  41.198 / 0.9524 / 2.794  |  42.778 / 0.9632 / 2.203 | 54.575 / 0.9967 / 5.046  |   
