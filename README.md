@@ -1,2 +1,2 @@
 # SFCSR
-hyperspectral Image Super-Resolution
+Hyperspectral Image Super-Resolution
