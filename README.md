@@ -12,7 +12,7 @@ Requirement
 ---------
 **python 2.7, Pytorch 0.3.1, cuda 9.0**
 
-Training
+Training and Test
 --------
 **The ADAM optimizer with beta_1 = 0.9, beta _2 = 0.999 is employed to train our network.  The learning rate is initialized as 10^-4 for all layers, which decreases by a half at every 35 epochs.**
 
