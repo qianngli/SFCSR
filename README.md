@@ -1,6 +1,5 @@
 # SFCSR
 
-======
 **This is an implementation of  Hyperspectral Image Super-Resolution Using Spectrum and Feature Context.**
 
 Dataset
