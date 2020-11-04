@@ -1,21 +1,13 @@
 import torch
 import torch.nn as nn
 import math  
-import pdb
        
     
 class TwoCNN(nn.Module):
     def __init__(self, wn, n_feats=64): 
         super(TwoCNN, self).__init__()
-        act = nn.ReLU(inplace=True)  
-        
-        body = []
-        for i in range(2):
-            body.append(wn(nn.Conv2d(n_feats, n_feats, kernel_size=(3,3), stride=1, padding=(1,1))))
-            if i == 0:
-                body.append(act)
 
-        self.body = nn.Sequential(*body)
+        self.body = wn(nn.Conv2d(n_feats, n_feats, kernel_size=(3,3), stride=1, padding=(1,1)))
                
     def forward(self, x):
     
@@ -121,7 +113,7 @@ class SFCSR(nn.Module):
         self.reduceD_FCF = wn(nn.Conv2d(n_feats*2, n_feats, kernel_size=(1,1), stride=1))  
         self.conv_FCF = wn(nn.Conv2d(n_feats, n_feats, kernel_size=(1,1), stride=1))    
         
-    def forward(self, x, y, localFeats, band):
+    def forward(self, x, y, localFeats, i):
         x = x.unsqueeze(1)     
         x = self.ThreeHead(x)    
         skip_x = x         
@@ -133,16 +125,16 @@ class SFCSR(nn.Module):
         channelX = []
         channelY = []        
 
-        for i in range(self.n_module):        
-            x = self.threeCNN[i](x)    
+        for j in range(self.n_module):        
+            x = self.threeCNN[j](x)    
             x = torch.add(skip_x, x)          
-            channelX.append(self.gamma_X[i]*x)
+            channelX.append(self.gamma_X[j]*x)
 
-            y = self.twoCNN[i](y)           
+            y = self.twoCNN[j](y)           
             y = torch.cat([y, x[:,:,0,:,:], x[:,:,1,:,:], x[:,:,2,:,:]],1)
-            y = self.reduceD[i](y)      
+            y = self.reduceD[j](y)      
             y = torch.add(skip_y, y)         
-            channelY.append(self.gamma_Y[i]*y) 
+            channelY.append(self.gamma_Y[j]*y) 
                               
         x = torch.cat(channelX, 1)
         x = self.reduceD_X(x)
@@ -157,7 +149,7 @@ class SFCSR(nn.Module):
         y = self.reduceD_DFF(y)  
         y = self.conv_DFF(y)
                        
-        if band == 0:
+        if i == 0:
             localFeats = y
         else:
             y = torch.cat([self.gamma_FCF[0]*y, self.gamma_FCF[1]*localFeats], 1) 
@@ -169,3 +161,4 @@ class SFCSR(nn.Module):
         y = y.squeeze(1)   
                 
         return y, localFeats  
+        
