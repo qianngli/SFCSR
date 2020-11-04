@@ -7,7 +7,6 @@ from torch.autograd import Variable
 from torch.utils.data import DataLoader
 from tensorboardX import SummaryWriter
 
-import pdb
 from option import  opt
 from model import SFCSR
 from data_utils import TrainsetFromFolder, ValsetFromFolder
@@ -163,7 +162,7 @@ def val(val_loader, model, epoch):
     
         
 def save_checkpoint(model, epoch, optimizer):
-    model_out_path = "checkpoint/" + "{}_model_{}_epoch_{}.pth".format(opt.datasetName, opt.upscale_factor, epoch)
+    model_out_path = "checkpoint/" + "model_{}_epoch_{}.pth".format(opt.upscale_factor, epoch)
     state = {"epoch": epoch , "model": model.state_dict(), "optimizer":optimizer.state_dict()}
     if not os.path.exists("checkpoint/"):
         os.makedirs("checkpoint/")     	
