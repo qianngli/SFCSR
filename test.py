@@ -9,7 +9,6 @@ from data_utils import is_image_file
 from model import SFCSR
 import scipy.io as scio  
 from eval import PSNR, SSIM, SAM
-import pdb
 import time  
                    
 def main():
