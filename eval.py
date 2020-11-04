@@ -1,7 +1,6 @@
 import math
 import numpy as np
 from scipy.signal import convolve2d
-import pdb
 
 def PSNR(pred, gt):
     valid = gt - pred
