@@ -32,6 +32,18 @@ Result
 |  x3 |  41.198 / 0.9524 / 2.794  |  42.778 / 0.9632 / 2.203 | 54.575 / 0.9967 / 5.046  |   
 |  x4 | 39.192 / 0.9321 / 3.221 |  40.077 / 0.9373 / 2.407 | 52.215 / 0.9939 / 5.618  | 
 
+Citation 
+--------
+**Please consider cite this paper if you find it helpful.**
+
+@article{wang2020hyper,
+
+	title={Hyperspectral Image Super-Resolution Using Spectrum and Feature Context},
+	author={Q. Wang, Q. Li and X. Li},
+	journal={IEEE Transactions on Industrial Electronics},
+	year={2020}
+	}
+  
 --------
 If you has any questions, please send e-mail to liqmges@gmail.com.
 
