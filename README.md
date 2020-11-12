@@ -41,7 +41,8 @@ Citation
 	title={Hyperspectral Image Super-Resolution Using Spectrum and Feature Context},
 	author={Q. Wang, Q. Li and X. Li},
 	journal={IEEE Transactions on Industrial Electronics},
-	year={2020}
+	year={2020},
+	doi={10.1109/TIE.2020.303809}
 	}
   
 --------
