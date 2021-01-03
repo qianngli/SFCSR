@@ -6,6 +6,9 @@ from os import listdir
 from os.path import join
 import scipy.io as scio
 
+def is_image_file(filename):
+    return any(filename.endswith(extension) for extension in ['.mat'])
+
 class TrainsetFromFolder(data.Dataset):
     def __init__(self, dataset_dir):
         super(TrainsetFromFolder, self).__init__()
